@@ -118,6 +118,7 @@ function ProductsSection({ onNavigate }) {
       pills: ['Own Brand', 'WhatsApp Orders', 'Delivery Zones', 'Vendor Dashboard'],
       price: 'From Rp 50,000/month',
       page: 'food',
+      bannerImg: 'https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2004_17_25%20PM.png',
       iconBg: 'linear-gradient(135deg, #8DC63F20, #8DC63F05)',
       iconChar: '\uD83C\uDF5C',
     },
@@ -174,8 +175,13 @@ function ProductsSection({ onNavigate }) {
                 transitionDelay: `${i * 0.15}s`,
               }}
             >
-              {/* Icon area */}
-              <div className="float" style={{
+              {/* Banner image or Icon */}
+              {p.bannerImg && (
+                <div style={{ marginBottom: 20, borderRadius: 14, overflow: 'hidden', height: 160 }}>
+                  <img src={p.bannerImg} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+              )}
+              {!p.bannerImg && <div className="float" style={{
                 width: 72,
                 height: 72,
                 borderRadius: 20,
@@ -188,7 +194,7 @@ function ProductsSection({ onNavigate }) {
                 animationDelay: `${i * 0.5}s`,
               }}>
                 {p.iconChar}
-              </div>
+              </div>}
 
               <h3 style={{ fontSize: 22, fontWeight: 900, marginBottom: 12 }}>{p.title}</h3>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 15, lineHeight: 1.7, marginBottom: 20 }}>

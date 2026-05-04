@@ -3,20 +3,9 @@ const WA_LINK = 'https://wa.me/6281573635143'
 export default function FoodPage({ onNavigate }) {
   return (
     <div style={{ paddingTop: 64 }}>
-      {/* Hero — Banner Image Full Screen */}
-      <section style={{
-        minHeight: '100vh',
-        position: 'relative',
-        overflow: 'hidden',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-        <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundImage: 'url(https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2004_17_25%20PM.png)', backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
-      </section>
-
-      {/* Content Section */}
-      <section style={{ padding: '80px 0', position: 'relative' }}>
+      {/* Hero */}
+      <section className="grid-bg" style={{ padding: '100px 0 80px', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 0%, rgba(141,198,63,0.1) 0%, transparent 60%)', pointerEvents: 'none' }} />
         <div className="ws-container" style={{ textAlign: 'center' }}>
           <h1 className="reveal" style={{ fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 900, marginBottom: 16 }}>
             Street <span className="gradient-text">Food</span>
