@@ -315,7 +315,7 @@ function WhyIndooSection() {
     { title: 'Zero Commission', desc: 'Keep all your revenue', icon: '\uD83D\uDCB0' },
     { title: 'Your Brand', desc: 'Your name, your platform, your customers', icon: null, image: 'https://ik.imagekit.io/nepgaxllc/Untitleddsasdasd-removebg-preview.png' },
     { title: 'WhatsApp Ordering', desc: 'Orders sent direct to WhatsApp — no app download needed', icon: null, image: 'https://ik.imagekit.io/nepgaxllc/Untitledddddccc-removebg-preview.png' },
-    { title: 'Affordable', desc: 'Starting from Rp 30,000/month', icon: '\u2728' },
+    { title: 'Delivery Zones', desc: 'Set up zone-based delivery pricing. Define areas and fees so customers know delivery cost upfront.', icon: null, image: 'https://ik.imagekit.io/nepgaxllc/Untitleddadaaa-removebg-preview.png' },
     { title: 'Full Support', desc: 'Setup assistance and ongoing help', icon: '\uD83E\uDD1D' },
     { title: 'Global Ready', desc: 'Built for businesses worldwide', icon: '\uD83C\uDF0D' },
   ]
