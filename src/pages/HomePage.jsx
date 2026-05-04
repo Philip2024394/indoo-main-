@@ -38,56 +38,61 @@ function HeroSection({ onNavigate }) {
         zIndex: 1,
       }} />
 
-      <div className="ws-container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
+      <div className="ws-container" style={{ textAlign: 'center', position: 'relative', zIndex: 2, padding: '0 20px' }}>
+        {/* Logo badge */}
+        <div className="reveal" style={{ marginBottom: 20 }}>
+          <span style={{ fontSize: 14, fontWeight: 800, color: '#8DC63F', letterSpacing: '4px', textTransform: 'uppercase' }}>INDOO TECH</span>
+        </div>
+
         <h1 className="reveal" style={{
-          fontSize: 'clamp(40px, 6vw, 64px)',
+          fontSize: 'clamp(32px, 7vw, 64px)',
           fontWeight: 900,
-          lineHeight: 1.1,
-          marginBottom: 24,
-          letterSpacing: -1,
+          lineHeight: 1.08,
+          marginBottom: 20,
+          letterSpacing: '-1px',
         }}>
           Software Solutions<br />
           <span className="gradient-text">For Every Industry</span>
         </h1>
 
         <p className="reveal" style={{
-          fontSize: 18,
-          color: 'rgba(255,255,255,0.5)',
-          maxWidth: 640,
-          margin: '0 auto 40px',
+          fontSize: 'clamp(14px, 3.5vw, 18px)',
+          color: 'rgba(255,255,255,0.6)',
+          maxWidth: 520,
+          margin: '0 auto 32px',
           lineHeight: 1.7,
         }}>
           Custom-built applications for restaurants, property, logistics, and beyond. From concept to launch — we build the technology your business needs.
         </p>
 
-        <div className="reveal" style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 64 }}>
+        <div className="reveal" style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 40 }}>
           <button
             className="btn-primary"
             onClick={() => {
               document.getElementById('products-section')?.scrollIntoView({ behavior: 'smooth' })
             }}
-            style={{ fontSize: 17, padding: '16px 36px' }}
+            style={{ fontSize: 'clamp(14px, 3.5vw, 17px)', padding: '14px 28px' }}
           >
             Explore Products
           </button>
           <button
             className="btn-secondary"
             onClick={() => onNavigate('contact')}
-            style={{ fontSize: 17, padding: '16px 36px' }}
+            style={{ fontSize: 'clamp(14px, 3.5vw, 17px)', padding: '14px 28px' }}
           >
             Contact Us
           </button>
         </div>
 
-        {/* Animated stats */}
+        {/* Stats */}
         <div className="reveal" style={{
           display: 'flex',
           justifyContent: 'center',
-          gap: 60,
+          gap: 'clamp(20px, 5vw, 60px)',
           flexWrap: 'wrap',
         }}>
-          <StatItem value="Global Reach" label="Serving Clients Worldwide" />
-          <StatItem value="Custom Built" label="Tailored to Your Business" />
+          <StatItem value="Global Reach" label="Clients Worldwide" />
+          <StatItem value="Custom Built" label="Tailored Solutions" />
           <StatItem value="Any Industry" label="Unlimited Possibilities" />
         </div>
       </div>
