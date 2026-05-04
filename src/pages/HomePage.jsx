@@ -27,51 +27,18 @@ function HeroSection({ onNavigate }) {
       overflow: 'hidden',
       padding: '80px 0',
     }}>
-      {/* Background image */}
+      {/* Background image — full page */}
       <img src="https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2004_55_51%20PM.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0, pointerEvents: 'none' }} />
-      {/* Radial gradient overlay */}
+      {/* Dark overlay for text readability */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'radial-gradient(ellipse at 50% 30%, rgba(141,198,63,0.08) 0%, transparent 60%)',
+        background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%)',
         pointerEvents: 'none',
+        zIndex: 1,
       }} />
 
-      {/* Floating decorative elements */}
-      <div className="float" style={{
-        position: 'absolute',
-        top: '15%',
-        left: '8%',
-        width: 80,
-        height: 80,
-        borderRadius: '50%',
-        border: '1px solid rgba(141,198,63,0.1)',
-        pointerEvents: 'none',
-      }} />
-      <div className="float" style={{
-        position: 'absolute',
-        bottom: '20%',
-        right: '10%',
-        width: 120,
-        height: 120,
-        borderRadius: '50%',
-        border: '1px solid rgba(141,198,63,0.06)',
-        pointerEvents: 'none',
-        animationDelay: '1s',
-      }} />
-      <div className="float" style={{
-        position: 'absolute',
-        top: '40%',
-        right: '20%',
-        width: 40,
-        height: 40,
-        borderRadius: 8,
-        background: 'rgba(141,198,63,0.05)',
-        pointerEvents: 'none',
-        animationDelay: '2s',
-      }} />
-
-      <div className="ws-container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+      <div className="ws-container" style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
         <h1 className="reveal" style={{
           fontSize: 'clamp(40px, 6vw, 64px)',
           fontWeight: 900,
