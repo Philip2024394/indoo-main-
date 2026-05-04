@@ -240,8 +240,9 @@ function HowItWorksSection() {
   ]
 
   return (
-    <section className="section" style={{ background: 'rgba(141,198,63,0.02)' }}>
-      <div className="ws-container">
+    <section className="section" style={{ position: 'relative', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundImage: 'url(https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2005_23_42%20PM.png)', backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
+      <div className="ws-container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="reveal" style={{ textAlign: 'center', marginBottom: 64 }}>
           <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16 }}>How It Works</h2>
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16 }}>Get started in three simple steps</p>
