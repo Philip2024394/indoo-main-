@@ -118,7 +118,7 @@ function ProductsSection({ onNavigate }) {
       pills: ['Own Brand', 'WhatsApp Orders', 'Delivery Zones', 'Vendor Dashboard'],
       price: 'From Rp 50,000/month',
       page: 'food',
-      bannerImg: 'https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2004_17_25%20PM.png',
+      bannerImg: 'https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2006_41_35%20PM.png',
       iconBg: 'linear-gradient(135deg, #8DC63F20, #8DC63F05)',
       iconChar: '\uD83C\uDF5C',
     },
@@ -177,8 +177,8 @@ function ProductsSection({ onNavigate }) {
             >
               {/* Banner image or Icon */}
               {p.bannerImg && (
-                <div style={{ marginBottom: 20, borderRadius: 14, overflow: 'hidden', height: 160 }}>
-                  <img src={p.bannerImg} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ marginBottom: 20, display: 'flex', justifyContent: 'center' }}>
+                  <img src={p.bannerImg} alt={p.title} style={{ width: '80%', maxWidth: 220, height: 'auto', objectFit: 'contain' }} />
                 </div>
               )}
               {!p.bannerImg && <div className="float" style={{
