@@ -18,7 +18,7 @@ export default function HomePage({ onNavigate }) {
 /* ─── HERO ─── */
 function HeroSection({ onNavigate }) {
   return (
-    <section className="grid-bg" style={{
+    <section style={{
       minHeight: 'calc(100vh - 64px)',
       display: 'flex',
       alignItems: 'center',
@@ -27,6 +27,8 @@ function HeroSection({ onNavigate }) {
       overflow: 'hidden',
       padding: '80px 0',
     }}>
+      {/* Background image */}
+      <img src="https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2004_55_51%20PM.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0, pointerEvents: 'none' }} />
       {/* Radial gradient overlay */}
       <div style={{
         position: 'absolute',
