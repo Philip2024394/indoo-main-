@@ -20,7 +20,7 @@ export default function ContactPage({ onNavigate }) {
             Contact <span className="gradient-text">Us</span>
           </h1>
           <p className="reveal" style={{ color: 'rgba(255,255,255,0.5)', fontSize: 18, maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>
-            Get in touch for a free consultation about our products
+            Get in touch for a free consultation — serving clients globally
           </p>
         </div>
       </section>
@@ -80,7 +80,7 @@ export default function ContactPage({ onNavigate }) {
                 margin: '0 auto 16px',
               }}>&#128231;</div>
               <h3 style={{ fontSize: 20, fontWeight: 900, marginBottom: 10 }}>Email</h3>
-              <p style={{ color: '#8DC63F', fontSize: 16, fontWeight: 700, marginBottom: 8 }}>info@indoo.id</p>
+              <p style={{ color: '#8DC63F', fontSize: 16, fontWeight: 700, marginBottom: 8 }}>hello@indootech.com</p>
               <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>We reply within 24 hours</p>
             </div>
 
@@ -99,8 +99,8 @@ export default function ContactPage({ onNavigate }) {
                 margin: '0 auto 16px',
               }}>&#128205;</div>
               <h3 style={{ fontSize: 20, fontWeight: 900, marginBottom: 10 }}>Address</h3>
-              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 16, fontWeight: 700, marginBottom: 8 }}>Yogyakarta, Indonesia</p>
-              <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>PT Indoo Teknologi</p>
+              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 16, fontWeight: 700, marginBottom: 8 }}>Southeast Asia</p>
+              <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>Serving clients globally</p>
             </div>
           </div>
         </div>
@@ -116,8 +116,8 @@ export default function ContactPage({ onNavigate }) {
           <div className="glass-card reveal-scale" style={{ padding: 36 }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
               {[
-                { day: 'Monday \u2013 Friday', hours: '09:00 \u2013 18:00 WIB' },
-                { day: 'Saturday', hours: '09:00 \u2013 14:00 WIB' },
+                { day: 'Monday \u2013 Friday', hours: '09:00 \u2013 18:00 GMT+7' },
+                { day: 'Saturday', hours: '09:00 \u2013 14:00 GMT+7' },
                 { day: 'Sunday', hours: 'Closed' },
               ].map((row, i) => (
                 <div key={row.day} style={{

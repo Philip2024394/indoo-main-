@@ -17,11 +17,11 @@ export default function Footer({ onNavigate }) {
           {/* Logo & info */}
           <div>
             <div style={{ fontSize: 26, fontWeight: 900, marginBottom: 16, letterSpacing: 3 }}>
-              IND<span style={{ color: '#8DC63F' }}>OO</span>
+              IND<span style={{ color: '#8DC63F' }}>OO</span><span style={{ fontWeight: 400, fontSize: 18, marginLeft: 6, letterSpacing: 1, color: 'rgba(255,255,255,0.6)' }}>TECH</span>
             </div>
             <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14, lineHeight: 1.8 }}>
-              PT Indoo Teknologi<br />
-              Yogyakarta, Indonesia
+              INDOO TECH — Software for Every Industry<br />
+              indootech.com
             </p>
           </div>
 
@@ -32,6 +32,7 @@ export default function Footer({ onNavigate }) {
               <FooterLink onClick={() => onNavigate('food')}>Street Food</FooterLink>
               <FooterLink onClick={() => onNavigate('riders')}>City Riders</FooterLink>
               <FooterLink onClick={() => onNavigate('property')}>Indoo Property</FooterLink>
+              <FooterLink onClick={() => onNavigate('contact')}>Custom Development</FooterLink>
             </div>
           </div>
 
@@ -58,7 +59,7 @@ export default function Footer({ onNavigate }) {
               >
                 WhatsApp
               </a>
-              <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>info@indoo.id</span>
+              <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>hello@indootech.com</span>
             </div>
           </div>
         </div>
@@ -70,7 +71,7 @@ export default function Footer({ onNavigate }) {
           color: 'rgba(255,255,255,0.25)',
           fontSize: 14,
         }}>
-          &copy; 2026 PT Indoo Teknologi. All rights reserved.
+          &copy; 2026 INDOO TECH. All rights reserved.
         </div>
       </div>
     </footer>

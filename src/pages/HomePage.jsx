@@ -46,8 +46,8 @@ function HeroSection({ onNavigate }) {
           marginBottom: 24,
           letterSpacing: -1,
         }}>
-          Technology That Powers<br />
-          <span className="gradient-text">Indonesian Business</span>
+          Software Solutions<br />
+          <span className="gradient-text">For Every Industry</span>
         </h1>
 
         <p className="reveal" style={{
@@ -57,7 +57,7 @@ function HeroSection({ onNavigate }) {
           margin: '0 auto 40px',
           lineHeight: 1.7,
         }}>
-          Software solutions for restaurants, delivery services, and property investors
+          Custom-built applications for restaurants, property, logistics, and beyond. From concept to launch — we build the technology your business needs.
         </p>
 
         <div className="reveal" style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 64 }}>
@@ -86,9 +86,9 @@ function HeroSection({ onNavigate }) {
           gap: 60,
           flexWrap: 'wrap',
         }}>
-          <StatItem value="3 Products" label="Software Suite" />
-          <StatItem value="Built for Indonesia" label="Local Market" />
-          <StatItem value="From Rp 30K/month" label="Starting Price" />
+          <StatItem value="Global Reach" label="Serving Clients Worldwide" />
+          <StatItem value="Custom Built" label="Tailored to Your Business" />
+          <StatItem value="Any Industry" label="Unlimited Possibilities" />
         </div>
       </div>
     </section>
@@ -134,20 +134,30 @@ function ProductsSection({ onNavigate }) {
       iconBg: 'linear-gradient(135deg, #3B82F620, #3B82F605)',
       iconChar: '\uD83C\uDFE2',
     },
+    {
+      title: 'Custom Software',
+      desc: 'Need something unique? We design and build custom applications for any industry. Web apps, mobile apps, SaaS platforms — tailored to your business.',
+      pills: ['Web & Mobile', 'SaaS Platforms', 'API Integration', 'Full Support'],
+      price: 'Custom Quote',
+      page: 'contact',
+      iconBg: 'linear-gradient(135deg, #A855F720, #A855F705)',
+      iconChar: '\uD83D\uDCBB',
+    },
   ]
 
   return (
-    <section className="section" id="products-section">
-      <div className="ws-container">
+    <section className="section" id="products-section" style={{ position: 'relative', overflow: 'hidden' }}>
+      <img src="https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2005_08_55%20PM.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0, pointerEvents: 'none', opacity: 0.15 }} />
+      <div className="ws-container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
           <div style={{ width: 48, height: 3, background: '#8DC63F', borderRadius: 2, margin: '0 auto 20px' }} />
-          <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16 }}>Our Products</h2>
+          <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16 }}>Our Solutions</h2>
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, maxWidth: 500, margin: '0 auto' }}>
-            Three software solutions designed for Indonesian businesses
+            Purpose-built software for growing businesses
           </p>
         </div>
 
-        <div className="grid-3">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
           {products.map((p, i) => (
             <div
               key={p.page}
@@ -206,7 +216,7 @@ function ProductsSection({ onNavigate }) {
                 onClick={() => onNavigate(p.page)}
                 style={{ marginTop: 'auto', width: '100%', justifyContent: 'center' }}
               >
-                Learn More &rarr;
+                {p.title === 'Custom Software' ? 'Contact Us \u2192' : 'Learn More \u2192'}
               </button>
             </div>
           ))}
@@ -291,19 +301,19 @@ function WhyIndooSection() {
   const features = [
     { title: 'Zero Commission', desc: 'Keep all your revenue', icon: '\uD83D\uDCB0' },
     { title: 'Your Brand', desc: 'Your name, your platform, your customers', icon: '\uD83C\uDFF7\uFE0F' },
-    { title: 'WhatsApp Native', desc: 'Built for how Indonesia communicates', icon: '\uD83D\uDCAC' },
+    { title: 'Multi-Platform', desc: 'Web, mobile, and messaging integrations', icon: '\uD83D\uDCAC' },
     { title: 'Affordable', desc: 'Starting from Rp 30,000/month', icon: '\u2728' },
     { title: 'Full Support', desc: 'Setup assistance and ongoing help', icon: '\uD83E\uDD1D' },
-    { title: 'Indonesian Built', desc: 'Designed for the local market', icon: '\uD83C\uDDEE\uD83C\uDDE9' },
+    { title: 'Global Ready', desc: 'Built for businesses worldwide', icon: '\uD83C\uDF0D' },
   ]
 
   return (
     <section className="section">
       <div className="ws-container">
         <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
-          <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16 }}>Why INDOO</h2>
+          <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16 }}>Why INDOO TECH</h2>
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, maxWidth: 550, margin: '0 auto' }}>
-            Built for Indonesian businesses that want to own their digital presence
+            Built for businesses that want to own their digital presence
           </p>
         </div>
 
@@ -382,7 +392,7 @@ function PricingSection() {
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16 }}>Transparent pricing with no hidden fees</p>
         </div>
 
-        <div className="grid-3">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 24 }}>
           {/* Street Food tiers */}
           <div className="glass-card reveal-scale" style={{ padding: 32, display: 'flex', flexDirection: 'column' }}>
             <h3 style={{ fontSize: 20, fontWeight: 900, marginBottom: 24 }}>Street Food</h3>
@@ -439,6 +449,23 @@ function PricingSection() {
               ))}
             </div>
           </div>
+
+          {/* Custom Software */}
+          <div className="glass-card reveal-scale" style={{ padding: 32, display: 'flex', flexDirection: 'column', transitionDelay: '0.45s' }}>
+            <h3 style={{ fontSize: 20, fontWeight: 900, marginBottom: 8 }}>Custom Software</h3>
+            <div style={{ marginBottom: 24 }}>
+              <span style={{ fontSize: 32, fontWeight: 900, color: '#8DC63F' }}>Contact</span>
+              <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14, marginLeft: 4 }}>for quote</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              {['Web & mobile applications', 'SaaS platform development', 'API design & integration', 'UI/UX design', 'Ongoing maintenance', 'Dedicated project manager'].map((f) => (
+                <div key={f} style={{ display: 'flex', gap: 10, fontSize: 14, color: 'rgba(255,255,255,0.7)' }}>
+                  <span style={{ color: '#8DC63F', fontWeight: 700 }}>&#10003;</span>
+                  {f}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -452,10 +479,10 @@ function CTASection() {
       <div className="ws-container" style={{ textAlign: 'center' }}>
         <div className="reveal">
           <h2 style={{ fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 900, marginBottom: 16 }}>
-            Ready to Build Your Business?
+            Ready to Build Your Vision?
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 18, marginBottom: 40, maxWidth: 500, margin: '0 auto 40px' }}>
-            Start with a free consultation &mdash; no obligations
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 18, marginBottom: 40, maxWidth: 600, margin: '0 auto 40px' }}>
+            Whether you need a food platform, property portal, or something entirely new — we'll build it.
           </p>
           <a
             href={WA_LINK}

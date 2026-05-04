@@ -73,7 +73,7 @@ export default function Nav({ activePage, onNavigate }) {
             letterSpacing: 3,
           }}
         >
-          IND<span style={{ color: '#8DC63F' }}>OO</span>
+          IND<span style={{ color: '#8DC63F' }}>OO</span><span style={{ fontWeight: 400, fontSize: 18, marginLeft: 6, letterSpacing: 1, color: 'rgba(255,255,255,0.6)' }}>TECH</span>
         </button>
 
         {/* Desktop Nav */}

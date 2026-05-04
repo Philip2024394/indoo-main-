@@ -15,10 +15,10 @@ export default function AboutPage({ onNavigate }) {
         }} />
         <div className="ws-container" style={{ textAlign: 'center', position: 'relative' }}>
           <h1 className="reveal" style={{ fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 900, marginBottom: 16 }}>
-            About <span className="gradient-text">INDOO</span>
+            About <span className="gradient-text">INDOO TECH</span>
           </h1>
           <p className="reveal" style={{ color: 'rgba(255,255,255,0.5)', fontSize: 18, maxWidth: 600, margin: '0 auto', lineHeight: 1.7 }}>
-            Making technology accessible for Indonesian businesses
+            Global software company building purpose-driven applications
           </p>
         </div>
       </section>
@@ -32,23 +32,23 @@ export default function AboutPage({ onNavigate }) {
             gap: 40,
           }}>
             <div className="reveal-left">
-              <h2 style={{ fontSize: 32, fontWeight: 900, marginBottom: 20 }}>PT Indoo Teknologi</h2>
+              <h2 style={{ fontSize: 32, fontWeight: 900, marginBottom: 20 }}>INDOO TECH</h2>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, lineHeight: 1.9, marginBottom: 20 }}>
-                INDOO Technologies is a software company based in Yogyakarta, Indonesia. We build digital tools that help Indonesian businesses compete in the modern economy.
+                INDOO TECH is a global software company building purpose-driven applications for businesses of every size. Based in Southeast Asia, we serve clients worldwide.
               </p>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, lineHeight: 1.9, marginBottom: 20 }}>
-                Our mission is simple: make technology accessible for Indonesian businesses. No complicated setup, no expensive consulting &mdash; just tools that work.
+                From food ordering platforms to property investment tools, logistics solutions to custom SaaS products &mdash; we design, build, and maintain the software that powers modern businesses.
               </p>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, lineHeight: 1.9 }}>
-                We believe every restaurant deserves its own ordering platform, every property investor deserves clear guidance, and every delivery driver deserves fair opportunities.
+                We believe every restaurant deserves its own ordering platform, every property investor deserves clear guidance, and every business deserves technology that fits like a glove.
               </p>
             </div>
             <div className="reveal-right" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {[
-                { label: 'Location', value: 'Yogyakarta, Indonesia', icon: '\uD83D\uDCCD' },
-                { label: 'Company', value: 'PT Indoo Teknologi', icon: '\uD83C\uDFE2' },
-                { label: 'Products', value: '3 Software Solutions', icon: '\uD83D\uDCBB' },
-                { label: 'Market', value: 'Indonesian Businesses', icon: '\uD83C\uDDEE\uD83C\uDDE9' },
+                { label: 'Headquarters', value: 'Southeast Asia', icon: '\uD83D\uDCCD' },
+                { label: 'Company', value: 'INDOO TECH', icon: '\uD83C\uDFE2' },
+                { label: 'Solutions', value: '3 Products + Custom Dev', icon: '\uD83D\uDCBB' },
+                { label: 'Market', value: 'Global — Any Industry', icon: '\uD83C\uDF0D' },
               ].map((item, i) => (
                 <div key={item.label} className="glass-card" style={{
                   padding: 24,
@@ -91,8 +91,43 @@ export default function AboutPage({ onNavigate }) {
             fontWeight: 700,
             fontStyle: 'italic',
           }}>
-            &ldquo;Making technology accessible for Indonesian businesses&rdquo;
+            &ldquo;Making powerful technology accessible to businesses of every size, everywhere&rdquo;
           </p>
+        </div>
+      </section>
+
+      {/* Industries */}
+      <section className="section">
+        <div className="ws-container">
+          <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+            <div style={{ width: 48, height: 3, background: '#8DC63F', borderRadius: 2, margin: '0 auto 20px' }} />
+            <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16 }}>Industries We Serve</h2>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16 }}>From startups to enterprises, across every sector</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 20 }}>
+            {[
+              { icon: '\uD83C\uDF5C', name: 'Food & Beverage' },
+              { icon: '\uD83C\uDFE2', name: 'Real Estate' },
+              { icon: '\uD83D\uDE9A', name: 'Logistics' },
+              { icon: '\uD83D\uDED2', name: 'E-Commerce' },
+              { icon: '\uD83C\uDFE5', name: 'Healthcare' },
+              { icon: '\uD83C\uDF93', name: 'Education' },
+            ].map((ind, i) => (
+              <div
+                key={ind.name}
+                className="glass-card reveal-scale"
+                style={{
+                  padding: 28,
+                  textAlign: 'center',
+                  transitionDelay: `${i * 0.1}s`,
+                }}
+              >
+                <div style={{ fontSize: 36, marginBottom: 12 }}>{ind.icon}</div>
+                <div style={{ fontSize: 15, fontWeight: 800 }}>{ind.name}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -101,8 +136,8 @@ export default function AboutPage({ onNavigate }) {
         <div className="ws-container">
           <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ width: 48, height: 3, background: '#8DC63F', borderRadius: 2, margin: '0 auto 20px' }} />
-            <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16 }}>Our Products</h2>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16 }}>Three solutions for three different markets</p>
+            <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16 }}>Our Solutions</h2>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16 }}>Purpose-built software across multiple industries</p>
           </div>
 
           <div className="grid-3">
