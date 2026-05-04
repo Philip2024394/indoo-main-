@@ -484,8 +484,9 @@ function PricingSection() {
 /* ─── CTA ─── */
 function CTASection() {
   return (
-    <section className="section">
-      <div className="ws-container" style={{ textAlign: 'center' }}>
+    <section className="section" style={{ position: 'relative', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundImage: 'url(https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2006_16_29%20PM.png)', backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
+      <div className="ws-container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
         <div className="reveal">
           <h2 style={{ fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 900, marginBottom: 16 }}>
             Ready to Build Your Vision?
