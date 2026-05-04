@@ -28,7 +28,7 @@ function HeroSection({ onNavigate }) {
       padding: '80px 0',
     }}>
       {/* Background image — full page */}
-      <img src="https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2004_55_51%20PM.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundImage: 'url(https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2005_14_36%20PM.png)', backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
       {/* Dark overlay for text readability */}
       <div style={{
         position: 'absolute',
@@ -147,7 +147,7 @@ function ProductsSection({ onNavigate }) {
 
   return (
     <section className="section" id="products-section" style={{ position: 'relative', overflow: 'hidden' }}>
-      <img src="https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2005_08_55%20PM.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0, pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundImage: 'url(https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2005_08_55%20PM.png)', backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
       <div className="ws-container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
           <div style={{ width: 48, height: 3, background: '#8DC63F', borderRadius: 2, margin: '0 auto 20px' }} />

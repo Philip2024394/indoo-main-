@@ -1,8 +1,11 @@
 import { useState } from 'react'
+import { useLanguage, LANGUAGES } from '../i18n/index.jsx'
 
 export default function Nav({ activePage, onNavigate }) {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [langOpen, setLangOpen] = useState(false)
+  const { lang, setLang } = useLanguage()
 
   const products = [
     { label: 'Street Food', key: 'food', desc: 'Restaurant ordering platform' },
@@ -151,6 +154,31 @@ export default function Nav({ activePage, onNavigate }) {
 
           <NavButton active={activePage === 'about'} onClick={() => handleNav('about')}>About</NavButton>
           <NavButton active={activePage === 'contact'} onClick={() => handleNav('contact')}>Contact</NavButton>
+
+          {/* Language switcher */}
+          <div style={{ position: 'relative', marginLeft: 8 }}>
+            <button onClick={() => setLangOpen(!langOpen)} style={{
+              width: 34, height: 34, borderRadius: '50%', padding: 0,
+              border: '1.5px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.04)',
+              cursor: 'pointer', overflow: 'hidden',
+            }}>
+              <img src={LANGUAGES.find(l => l.code === lang)?.image} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            </button>
+            {langOpen && (
+              <div style={{ position: 'absolute', top: '100%', right: 0, marginTop: 6, background: 'rgba(10,10,10,0.95)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, overflow: 'hidden', minWidth: 120, backdropFilter: 'blur(12px)', zIndex: 100 }}>
+                {LANGUAGES.map(l => (
+                  <button key={l.code} onClick={() => { setLang(l.code); setLangOpen(false) }} style={{
+                    width: '100%', padding: '10px 14px', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.04)',
+                    background: l.code === lang ? 'rgba(141,198,63,0.1)' : 'none',
+                    color: l.code === lang ? '#8DC63F' : '#fff', fontSize: 13, fontWeight: 700,
+                    cursor: 'pointer', fontFamily: 'inherit', display: 'flex', alignItems: 'center', gap: 8,
+                  }}>
+                    <img src={l.image} alt="" style={{ width: 20, height: 20, borderRadius: '50%', objectFit: 'contain' }} /> {l.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Mobile hamburger */}
