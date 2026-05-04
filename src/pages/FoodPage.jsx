@@ -3,42 +3,31 @@ const WA_LINK = 'https://wa.me/6281573635143'
 export default function FoodPage({ onNavigate }) {
   return (
     <div style={{ paddingTop: 64 }}>
-      {/* Hero */}
-      <section className="grid-bg" style={{
-        padding: '100px 0 80px',
+      {/* Hero — Banner Image Full Screen */}
+      <section style={{
+        minHeight: '100vh',
         position: 'relative',
         overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}>
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'radial-gradient(ellipse at 50% 0%, rgba(141,198,63,0.1) 0%, transparent 60%)',
-          pointerEvents: 'none',
-        }} />
-        <div className="ws-container" style={{ textAlign: 'center', position: 'relative' }}>
-          <div className="float reveal" style={{
-            width: 88,
-            height: 88,
-            borderRadius: 24,
-            background: 'linear-gradient(135deg, rgba(141,198,63,0.15), rgba(141,198,63,0.03))',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: 44,
-            margin: '0 auto 28px',
-          }}>
-            &#127836;
-          </div>
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', backgroundImage: 'url(https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2004_17_25%20PM.png)', backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
+      </section>
+
+      {/* Content Section */}
+      <section style={{ padding: '80px 0', position: 'relative' }}>
+        <div className="ws-container" style={{ textAlign: 'center' }}>
           <h1 className="reveal" style={{ fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 900, marginBottom: 16 }}>
             Street <span className="gradient-text">Food</span>
           </h1>
           <p className="reveal" style={{ color: 'rgba(255,255,255,0.5)', fontSize: 18, maxWidth: 620, margin: '0 auto 36px', lineHeight: 1.7 }}>
-            Your own branded food ordering platform. Customers order direct &mdash; no commission, no middleman. Self-delivery with zone-based pricing.
+            Your own branded food ordering platform. Customers order direct — no commission, no middleman. Self-delivery with zone-based pricing.
           </p>
           <div className="reveal" style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ fontSize: 17, padding: '16px 36px' }}>
+            <button className="btn-primary" onClick={() => onNavigate('contact')} style={{ fontSize: 17, padding: '16px 36px' }}>
               Get Started
-            </a>
+            </button>
             <button className="btn-secondary" onClick={() => onNavigate('contact')} style={{ fontSize: 17, padding: '16px 36px' }}>
               Book a Demo
             </button>
