@@ -276,7 +276,7 @@ function HowItWorksSection() {
                 width: 64,
                 height: 64,
                 borderRadius: '50%',
-                background: '#0a0a0a',
+                background: 'rgba(0,0,0,0.8)',
                 border: '2px solid #8DC63F',
                 display: 'flex',
                 alignItems: 'center',
@@ -286,12 +286,13 @@ function HowItWorksSection() {
                 color: '#8DC63F',
                 flexShrink: 0,
                 zIndex: 1,
-                boxShadow: '0 0 20px rgba(141,198,63,0.15)',
+                boxShadow: '0 0 20px rgba(141,198,63,0.3)',
+                backdropFilter: 'blur(8px)',
               }}>
                 {s.num}
               </div>
-              <div style={{ paddingTop: 12 }}>
-                <h3 style={{ fontSize: 22, fontWeight: 900, marginBottom: 6 }}>{s.title}</h3>
+              <div style={{ paddingTop: 12, background: 'rgba(0,0,0,0.6)', borderRadius: 12, padding: '12px 16px', backdropFilter: 'blur(8px)' }}>
+                <h3 style={{ fontSize: 22, fontWeight: 900, marginBottom: 6, color: '#fff', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{s.title}</h3>
                 <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 15 }}>{s.desc}</p>
               </div>
             </div>
