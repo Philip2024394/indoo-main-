@@ -7,6 +7,7 @@ import PropertyPage from './pages/PropertyPage'
 import RidersPage from './pages/RidersPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
+import ServicesPage from './pages/ServicesPage'
 import './index.css'
 
 export default function App() {
@@ -38,6 +39,7 @@ export default function App() {
       {page === 'property' && <PropertyPage onNavigate={setPage} />}
       {page === 'riders' && <RidersPage onNavigate={setPage} />}
       {page === 'about' && <AboutPage onNavigate={setPage} />}
+      {page === 'services' && <ServicesPage onNavigate={setPage} />}
       {page === 'contact' && <ContactPage onNavigate={setPage} />}
       <Footer onNavigate={setPage} />
     </>

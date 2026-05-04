@@ -152,6 +152,7 @@ export default function Nav({ activePage, onNavigate }) {
             )}
           </div>
 
+          <NavButton active={activePage === 'services'} onClick={() => handleNav('services')}>Services</NavButton>
           <NavButton active={activePage === 'about'} onClick={() => handleNav('about')}>About</NavButton>
           <NavButton active={activePage === 'contact'} onClick={() => handleNav('contact')}>Contact</NavButton>
 
@@ -227,6 +228,7 @@ export default function Nav({ activePage, onNavigate }) {
             </MobileItem>
           ))}
           <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', margin: '8px 0' }} />
+          <MobileItem active={activePage === 'services'} onClick={() => handleNav('services')}>Services</MobileItem>
           <MobileItem active={activePage === 'about'} onClick={() => handleNav('about')}>About</MobileItem>
           <MobileItem active={activePage === 'contact'} onClick={() => handleNav('contact')}>Contact</MobileItem>
         </div>
