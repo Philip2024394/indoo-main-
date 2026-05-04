@@ -234,9 +234,9 @@ function ProductsSection({ onNavigate }) {
 /* ─── HOW IT WORKS ─── */
 function HowItWorksSection() {
   const steps = [
-    { num: '01', title: 'Choose', desc: 'Select the product for your business' },
-    { num: '02', title: 'Launch', desc: 'We set up and configure your platform' },
-    { num: '03', title: 'Grow', desc: 'Start serving customers and earning' },
+    { num: '01', title: 'Download', desc: 'Get your own branded application in minutes' },
+    { num: '02', title: 'Set Up', desc: 'Add your products, menu, or listings — make it yours' },
+    { num: '03', title: 'Share & Earn', desc: 'Share your app with customers and start earning' },
   ]
 
   return (
