@@ -116,7 +116,7 @@ function ProductsSection({ onNavigate }) {
       title: 'Street Food',
       desc: 'Your own branded food ordering platform. Zero commission. Customers order direct via your link \u2014 you keep 100% of revenue.',
       pills: ['Own Brand', 'WhatsApp Orders', 'Delivery Zones', 'Vendor Dashboard'],
-      price: 'From Rp 50,000/month',
+      price: 'From Rp 60,000/month',
       page: 'food',
       bannerImg: 'https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2006_41_35%20PM.png',
       iconBg: 'linear-gradient(135deg, #8DC63F20, #8DC63F05)',
@@ -128,7 +128,7 @@ function ProductsSection({ onNavigate }) {
       pills: ['Driver Profiles', 'City-Based', 'Direct Booking', 'Job Board'],
       price: 'Rp 30,000/month',
       page: 'riders',
-      bannerImg: 'https://ik.imagekit.io/nepgaxllc/Untitled324234-removebg-preview.png',
+      bannerImg: 'https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2007_00_23%20PM.png',
       iconBg: 'linear-gradient(135deg, #FACC1520, #FACC1505)',
       iconChar: '\uD83D\uDEB5',
     },
@@ -138,6 +138,7 @@ function ProductsSection({ onNavigate }) {
       pills: ['Foreign Investors', 'Legal Guide', 'Multi-Language', 'Management'],
       price: 'Service-based',
       page: 'property',
+      bannerImg: 'https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2007_03_11%20PM.png',
       iconBg: 'linear-gradient(135deg, #3B82F620, #3B82F605)',
       iconChar: '\uD83C\uDFE2',
     },
@@ -179,7 +180,7 @@ function ProductsSection({ onNavigate }) {
               {/* Banner image or Icon */}
               {p.bannerImg && (
                 <div style={{ marginBottom: 20, display: 'flex', justifyContent: 'center' }}>
-                  <img src={p.bannerImg} alt={p.title} style={{ width: '80%', maxWidth: 220, height: 'auto', objectFit: 'contain' }} />
+                  <img src={p.bannerImg} alt={p.title} style={{ width: p.title === 'City Riders' ? '100%' : '80%', maxWidth: p.title === 'City Riders' ? 317 : 220, height: 'auto', objectFit: 'contain' }} />
                 </div>
               )}
               {!p.bannerImg && <div className="float" style={{
@@ -380,7 +381,7 @@ function PricingSection() {
     {
       name: 'Street Food',
       tiers: [
-        { label: 'Basic', price: 'Rp 50K', period: '/month' },
+        { label: 'Basic', price: 'Rp 60K', period: '/month' },
         { label: 'Pro', price: 'Rp 100K', period: '/month', popular: true },
         { label: 'Premium', price: 'Rp 200K', period: '/month' },
       ],

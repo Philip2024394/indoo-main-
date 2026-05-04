@@ -116,8 +116,8 @@ export default function FoodPage({ onNavigate }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 24, marginBottom: 48 }}>
             {[
               {
-                name: 'Basic', price: 50000, link: STRIPE_LINKS.basic,
-                features: ['Branded ordering page (yourname.indootech.com)', 'Menu management (up to 50 items)', 'WhatsApp ordering', 'Basic delivery zones', 'Order notifications'],
+                name: 'Basic', price: 60000, link: STRIPE_LINKS.basic,
+                features: ['Single-page ordering app (yourname.indootech.com)', 'Up to 50 menu items', 'Same card design as Pro', 'WhatsApp ordering + checkout', 'Toggle items on/off', 'Delivery zones set by admin (your city)'],
               },
               {
                 name: 'Pro', price: 100000, highlight: true, link: STRIPE_LINKS.pro,
@@ -243,7 +243,7 @@ export default function FoodPage({ onNavigate }) {
                   ['Domain', 'yourname.indootech.com', 'Your own domain'],
                   ['Backend', 'Shared Supabase', 'Your choice (Firebase, etc.)'],
                   ['Source code', 'No access', 'Full access'],
-                  ['Monthly cost', `From ${cp(50000)}`, 'None (after purchase)'],
+                  ['Monthly cost', `From ${cp(60000)}`, 'None (after purchase)'],
                   ['Customisation', 'Branding only', 'Full code control'],
                   ['Setup', 'Instant', 'We assist (included)'],
                   ['Updates', 'Automatic', 'Manual (or maintenance plan)'],
