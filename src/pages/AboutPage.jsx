@@ -34,7 +34,7 @@ export default function AboutPage({ onNavigate }) {
             <div className="reveal-left">
               <h2 style={{ fontSize: 32, fontWeight: 900, marginBottom: 20 }}>INDOO TECH</h2>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, lineHeight: 1.9, marginBottom: 20 }}>
-                INDOO TECH is a global software company building purpose-driven applications for businesses of every size. Based in Southeast Asia, we serve clients worldwide.
+                INDOO TECH is a global software company building purpose-driven applications for businesses of every size. Based in Ireland & Indonesia, we serve clients worldwide.
               </p>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, lineHeight: 1.9, marginBottom: 20 }}>
                 From food ordering platforms to property investment tools, logistics solutions to custom SaaS products &mdash; we design, build, and maintain the software that powers modern businesses.
@@ -45,7 +45,7 @@ export default function AboutPage({ onNavigate }) {
             </div>
             <div className="reveal-right" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {[
-                { label: 'Headquarters', value: 'Southeast Asia', icon: '\uD83D\uDCCD' },
+                { label: 'Headquarters', value: 'Ireland & Indonesia', icon: '\uD83D\uDCCD' },
                 { label: 'Company', value: 'INDOO TECH', icon: '\uD83C\uDFE2' },
                 { label: 'Solutions', value: '3 Products + Custom Dev', icon: '\uD83D\uDCBB' },
                 { label: 'Market', value: 'Global — Any Industry', icon: '\uD83C\uDF0D' },

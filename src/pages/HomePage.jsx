@@ -147,7 +147,7 @@ function ProductsSection({ onNavigate }) {
 
   return (
     <section className="section" id="products-section" style={{ position: 'relative', overflow: 'hidden' }}>
-      <img src="https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2005_08_55%20PM.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0, pointerEvents: 'none', opacity: 0.15 }} />
+      <img src="https://ik.imagekit.io/nepgaxllc/ChatGPT%20Image%20May%204,%202026,%2005_08_55%20PM.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0, pointerEvents: 'none' }} />
       <div className="ws-container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
           <div style={{ width: 48, height: 3, background: '#8DC63F', borderRadius: 2, margin: '0 auto 20px' }} />

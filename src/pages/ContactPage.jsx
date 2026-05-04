@@ -99,7 +99,7 @@ export default function ContactPage({ onNavigate }) {
                 margin: '0 auto 16px',
               }}>&#128205;</div>
               <h3 style={{ fontSize: 20, fontWeight: 900, marginBottom: 10 }}>Address</h3>
-              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 16, fontWeight: 700, marginBottom: 8 }}>Southeast Asia</p>
+              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 16, fontWeight: 700, marginBottom: 8 }}>Ireland & Indonesia</p>
               <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>Serving clients globally</p>
             </div>
           </div>
