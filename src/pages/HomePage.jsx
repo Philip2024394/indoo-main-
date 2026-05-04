@@ -313,8 +313,8 @@ function HowItWorksSection() {
 function WhyIndooSection() {
   const features = [
     { title: 'Zero Commission', desc: 'Keep all your revenue', icon: '\uD83D\uDCB0' },
-    { title: 'Your Brand', desc: 'Your name, your platform, your customers', icon: '\uD83C\uDFF7\uFE0F' },
-    { title: 'Multi-Platform', desc: 'Web, mobile, and messaging integrations', icon: '\uD83D\uDCAC' },
+    { title: 'Your Brand', desc: 'Your name, your platform, your customers', icon: null, image: 'https://ik.imagekit.io/nepgaxllc/Untitleddsasdasd-removebg-preview.png' },
+    { title: 'WhatsApp Ordering', desc: 'Orders sent direct to WhatsApp — no app download needed', icon: null, image: 'https://ik.imagekit.io/nepgaxllc/Untitledddddccc-removebg-preview.png' },
     { title: 'Affordable', desc: 'Starting from Rp 30,000/month', icon: '\u2728' },
     { title: 'Full Support', desc: 'Setup assistance and ongoing help', icon: '\uD83E\uDD1D' },
     { title: 'Global Ready', desc: 'Built for businesses worldwide', icon: '\uD83C\uDF0D' },
@@ -359,7 +359,7 @@ function WhyIndooSection() {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-                {f.icon}
+                {f.image ? <img src={f.image} alt="" style={{ width: 36, height: 36, objectFit: 'contain' }} /> : f.icon}
               </div>
               <div>
                 <h3 style={{ fontSize: 17, fontWeight: 800, marginBottom: 6 }}>{f.title}</h3>
