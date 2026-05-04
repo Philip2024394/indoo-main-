@@ -59,7 +59,7 @@ export default function Footer({ onNavigate }) {
               >
                 WhatsApp
               </a>
-              <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>hello@indootech.com</span>
+              <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>indootechteam@gmail.com</span>
             </div>
           </div>
         </div>

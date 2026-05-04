@@ -80,7 +80,7 @@ export default function ContactPage({ onNavigate }) {
                 margin: '0 auto 16px',
               }}>&#128231;</div>
               <h3 style={{ fontSize: 20, fontWeight: 900, marginBottom: 10 }}>Email</h3>
-              <p style={{ color: '#8DC63F', fontSize: 16, fontWeight: 700, marginBottom: 8 }}>hello@indootech.com</p>
+              <p style={{ color: '#8DC63F', fontSize: 16, fontWeight: 700, marginBottom: 8 }}>indootechteam@gmail.com</p>
               <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>We reply within 24 hours</p>
             </div>
 
