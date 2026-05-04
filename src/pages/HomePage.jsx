@@ -128,6 +128,7 @@ function ProductsSection({ onNavigate }) {
       pills: ['Driver Profiles', 'City-Based', 'Direct Booking', 'Job Board'],
       price: 'Rp 30,000/month',
       page: 'riders',
+      bannerImg: 'https://ik.imagekit.io/nepgaxllc/Untitled324234-removebg-preview.png',
       iconBg: 'linear-gradient(135deg, #FACC1520, #FACC1505)',
       iconChar: '\uD83D\uDEB5',
     },
