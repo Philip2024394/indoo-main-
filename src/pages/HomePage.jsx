@@ -1,154 +1,243 @@
+import { useState, useEffect, useRef } from 'react'
+
 const WA_LINK = 'https://wa.me/6281573635143'
 
-export default function HomePage({ navigate }) {
+export default function HomePage({ onNavigate }) {
   return (
-    <div>
-      <HeroSection navigate={navigate} />
-      <ProductsSection navigate={navigate} />
+    <div style={{ paddingTop: 64 }}>
+      <HeroSection onNavigate={onNavigate} />
+      <ProductsSection onNavigate={onNavigate} />
       <HowItWorksSection />
       <WhyIndooSection />
       <PricingSection />
-      <CTASection navigate={navigate} />
+      <CTASection />
     </div>
   )
 }
 
 /* ─── HERO ─── */
-function HeroSection({ navigate }) {
+function HeroSection({ onNavigate }) {
   return (
-    <section style={{
-      padding: '100px 0 80px',
-      background: 'radial-gradient(ellipse at 50% 0%, rgba(141,198,63,0.08) 0%, transparent 60%)',
+    <section className="grid-bg" style={{
+      minHeight: 'calc(100vh - 64px)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'relative',
+      overflow: 'hidden',
+      padding: '80px 0',
     }}>
-      <div className="ws-container" style={{ textAlign: 'center' }}>
-        <h1 style={{
-          fontSize: 'clamp(36px, 5vw, 56px)',
+      {/* Radial gradient overlay */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'radial-gradient(ellipse at 50% 30%, rgba(141,198,63,0.08) 0%, transparent 60%)',
+        pointerEvents: 'none',
+      }} />
+
+      {/* Floating decorative elements */}
+      <div className="float" style={{
+        position: 'absolute',
+        top: '15%',
+        left: '8%',
+        width: 80,
+        height: 80,
+        borderRadius: '50%',
+        border: '1px solid rgba(141,198,63,0.1)',
+        pointerEvents: 'none',
+      }} />
+      <div className="float" style={{
+        position: 'absolute',
+        bottom: '20%',
+        right: '10%',
+        width: 120,
+        height: 120,
+        borderRadius: '50%',
+        border: '1px solid rgba(141,198,63,0.06)',
+        pointerEvents: 'none',
+        animationDelay: '1s',
+      }} />
+      <div className="float" style={{
+        position: 'absolute',
+        top: '40%',
+        right: '20%',
+        width: 40,
+        height: 40,
+        borderRadius: 8,
+        background: 'rgba(141,198,63,0.05)',
+        pointerEvents: 'none',
+        animationDelay: '2s',
+      }} />
+
+      <div className="ws-container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+        <h1 className="reveal" style={{
+          fontSize: 'clamp(40px, 6vw, 64px)',
           fontWeight: 900,
           lineHeight: 1.1,
-          marginBottom: 20,
+          marginBottom: 24,
+          letterSpacing: -1,
         }}>
-          Build Your Digital Business<br />
-          with <span style={{ color: '#8DC63F' }}>INDOO</span>
+          Technology That Powers<br />
+          <span className="gradient-text">Indonesian Business</span>
         </h1>
-        <p style={{
+
+        <p className="reveal" style={{
           fontSize: 18,
           color: 'rgba(255,255,255,0.5)',
           maxWidth: 640,
-          margin: '0 auto 36px',
-          lineHeight: 1.6,
+          margin: '0 auto 40px',
+          lineHeight: 1.7,
         }}>
-          Software solutions for restaurants, property investors, and delivery services across Indonesia
+          Software solutions for restaurants, delivery services, and property investors
         </p>
 
-        <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 48 }}>
-          <button className="btn-primary" onClick={() => {
-            document.getElementById('products-section')?.scrollIntoView({ behavior: 'smooth' })
-          }}>
-            View Products
+        <div className="reveal" style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 64 }}>
+          <button
+            className="btn-primary"
+            onClick={() => {
+              document.getElementById('products-section')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+            style={{ fontSize: 17, padding: '16px 36px' }}
+          >
+            Explore Products
           </button>
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+          <button
+            className="btn-secondary"
+            onClick={() => onNavigate('contact')}
+            style={{ fontSize: 17, padding: '16px 36px' }}
+          >
             Contact Us
-          </a>
+          </button>
         </div>
 
-        <div style={{
+        {/* Animated stats */}
+        <div className="reveal" style={{
           display: 'flex',
           justifyContent: 'center',
-          gap: 48,
+          gap: 60,
           flexWrap: 'wrap',
         }}>
-          {[
-            { value: '3 Products', label: 'Software Suite' },
-            { value: 'Yogyakarta', label: 'Based' },
-            { value: 'Indonesian', label: 'Market' },
-          ].map((s) => (
-            <div key={s.value} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 24, fontWeight: 900, color: '#8DC63F' }}>{s.value}</div>
-              <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.4)' }}>{s.label}</div>
-            </div>
-          ))}
+          <StatItem value="3 Products" label="Software Suite" />
+          <StatItem value="Built for Indonesia" label="Local Market" />
+          <StatItem value="From Rp 30K/month" label="Starting Price" />
         </div>
       </div>
     </section>
   )
 }
 
+function StatItem({ value, label }) {
+  return (
+    <div style={{ textAlign: 'center' }}>
+      <div className="glow-text" style={{ fontSize: 22, fontWeight: 900, color: '#8DC63F', marginBottom: 4 }}>{value}</div>
+      <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.35)' }}>{label}</div>
+    </div>
+  )
+}
+
 /* ─── PRODUCTS ─── */
-function ProductsSection({ navigate }) {
+function ProductsSection({ onNavigate }) {
   const products = [
     {
-      icon: '🍽️',
-      title: 'Indoo Food',
-      subtitle: 'Restaurant Ordering System',
-      desc: 'Give your restaurant its own branded ordering app. Customers order direct — no commission, no middleman. Self-delivery with zone-based pricing.',
+      title: 'Street Food',
+      desc: 'Your own branded food ordering platform. Zero commission. Customers order direct via your link \u2014 you keep 100% of revenue.',
+      pills: ['Own Brand', 'WhatsApp Orders', 'Delivery Zones', 'Vendor Dashboard'],
       price: 'From Rp 50,000/month',
-      features: ['Own branded page', 'WhatsApp ordering', 'Delivery zones', 'Menu management', 'Order notifications', 'QR codes'],
       page: 'food',
+      iconBg: 'linear-gradient(135deg, #8DC63F20, #8DC63F05)',
+      iconChar: '\uD83C\uDF5C',
     },
     {
-      icon: '🏡',
-      title: 'Indoo Property',
-      subtitle: 'Investment Platform',
-      desc: 'International property investment platform for Indonesia. Foreign investor guidance, legal structures, PT PMA formation, property management.',
-      price: 'Service-based fees',
-      features: ['Foreign investor tools', 'Legal guide', 'Area investment data', 'PT PMA setup', 'Property management', 'Multi-language (EN/ID/AR/ZH)'],
-      page: 'property',
-    },
-    {
-      icon: '🛵',
-      title: 'Indoo Riders',
-      subtitle: 'Driver Job Board',
-      desc: 'Delivery driver listing platform. Drivers subscribe to be listed, restaurants browse and book directly. No commission, no dispatch — pure job board.',
-      price: 'Rp 30,000/month per driver',
-      features: ['Driver profiles', 'Online/offline status', 'City-based listing', 'Restaurant booking', 'WhatsApp contact', 'Rating system'],
+      title: 'City Riders',
+      desc: 'Driver job board for delivery services. Riders subscribe to be listed. Restaurants browse and book directly \u2014 no dispatch, no commission.',
+      pills: ['Driver Profiles', 'City-Based', 'Direct Booking', 'Job Board'],
+      price: 'Rp 30,000/month',
       page: 'riders',
+      iconBg: 'linear-gradient(135deg, #FACC1520, #FACC1505)',
+      iconChar: '\uD83D\uDEB5',
+    },
+    {
+      title: 'Indoo Property',
+      desc: 'International property investment platform. Legal guides, area data, PT PMA formation, and property management for foreign investors.',
+      pills: ['Foreign Investors', 'Legal Guide', 'Multi-Language', 'Management'],
+      price: 'Service-based',
+      page: 'property',
+      iconBg: 'linear-gradient(135deg, #3B82F620, #3B82F605)',
+      iconChar: '\uD83C\uDFE2',
     },
   ]
 
   return (
     <section className="section" id="products-section">
       <div className="ws-container">
-        <h2 className="section-title">Our Products</h2>
-        <p className="section-subtitle">Three software solutions designed for Indonesian businesses</p>
+        <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+          <div style={{ width: 48, height: 3, background: '#8DC63F', borderRadius: 2, margin: '0 auto 20px' }} />
+          <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16 }}>Our Products</h2>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, maxWidth: 500, margin: '0 auto' }}>
+            Three software solutions designed for Indonesian businesses
+          </p>
+        </div>
 
         <div className="grid-3">
-          {products.map((p) => (
-            <div key={p.page} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ fontSize: 40, marginBottom: 16 }}>{p.icon}</div>
-              <h3 style={{ fontSize: 20, fontWeight: 900, marginBottom: 4 }}>
-                {p.title} <span style={{ color: 'rgba(255,255,255,0.4)', fontWeight: 600, fontSize: 16 }}>— {p.subtitle}</span>
-              </h3>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, marginBottom: 16, lineHeight: 1.6 }}>
+          {products.map((p, i) => (
+            <div
+              key={p.page}
+              className="glass-card reveal-scale"
+              style={{
+                padding: 32,
+                display: 'flex',
+                flexDirection: 'column',
+                transitionDelay: `${i * 0.15}s`,
+              }}
+            >
+              {/* Icon area */}
+              <div className="float" style={{
+                width: 72,
+                height: 72,
+                borderRadius: 20,
+                background: p.iconBg,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: 36,
+                marginBottom: 24,
+                animationDelay: `${i * 0.5}s`,
+              }}>
+                {p.iconChar}
+              </div>
+
+              <h3 style={{ fontSize: 22, fontWeight: 900, marginBottom: 12 }}>{p.title}</h3>
+              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 15, lineHeight: 1.7, marginBottom: 20 }}>
                 {p.desc}
               </p>
-              <div style={{
-                color: '#8DC63F',
-                fontWeight: 800,
-                fontSize: 16,
-                marginBottom: 16,
-              }}>
-                {p.price}
-              </div>
+
+              {/* Feature pills */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 24 }}>
-                {p.features.map((f) => (
-                  <span key={f} style={{
+                {p.pills.map((pill) => (
+                  <span key={pill} style={{
                     background: 'rgba(141,198,63,0.08)',
                     color: 'rgba(255,255,255,0.7)',
-                    fontSize: 14,
-                    padding: '6px 12px',
-                    borderRadius: 8,
-                    border: '1px solid rgba(141,198,63,0.15)',
+                    fontSize: 13,
+                    padding: '6px 14px',
+                    borderRadius: 20,
+                    border: '1px solid rgba(141,198,63,0.12)',
+                    fontWeight: 600,
                   }}>
-                    {f}
+                    {pill}
                   </span>
                 ))}
               </div>
+
+              <div style={{ color: '#8DC63F', fontWeight: 800, fontSize: 16, marginBottom: 20 }}>
+                {p.price}
+              </div>
+
               <button
                 className="btn-primary"
-                onClick={() => navigate(p.page)}
+                onClick={() => onNavigate(p.page)}
                 style={{ marginTop: 'auto', width: '100%', justifyContent: 'center' }}
               >
-                Learn More
+                Learn More &rarr;
               </button>
             </div>
           ))}
@@ -161,38 +250,65 @@ function ProductsSection({ navigate }) {
 /* ─── HOW IT WORKS ─── */
 function HowItWorksSection() {
   const steps = [
-    { num: '1', title: 'Choose Your Product', desc: 'Select the software that fits your business' },
-    { num: '2', title: 'Set Up in Minutes', desc: 'We help you configure and launch' },
-    { num: '3', title: 'Start Earning', desc: 'Your business runs on your own platform' },
+    { num: '01', title: 'Choose', desc: 'Select the product for your business' },
+    { num: '02', title: 'Launch', desc: 'We set up and configure your platform' },
+    { num: '03', title: 'Grow', desc: 'Start serving customers and earning' },
   ]
 
   return (
-    <section className="section" style={{ background: 'rgba(141,198,63,0.03)' }}>
+    <section className="section" style={{ background: 'rgba(141,198,63,0.02)' }}>
       <div className="ws-container">
-        <h2 className="section-title">How It Works</h2>
-        <p className="section-subtitle">Get started in three simple steps</p>
+        <div className="reveal" style={{ textAlign: 'center', marginBottom: 64 }}>
+          <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16 }}>How It Works</h2>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16 }}>Get started in three simple steps</p>
+        </div>
 
-        <div className="grid-3">
-          {steps.map((s) => (
-            <div key={s.num} style={{ textAlign: 'center' }}>
+        {/* Vertical timeline */}
+        <div style={{ maxWidth: 600, margin: '0 auto', position: 'relative' }}>
+          {/* Animated line */}
+          <div style={{
+            position: 'absolute',
+            left: 31,
+            top: 0,
+            bottom: 0,
+            width: 2,
+            background: 'linear-gradient(to bottom, #8DC63F, rgba(141,198,63,0.1))',
+          }} />
+
+          {steps.map((s, i) => (
+            <div
+              key={s.num}
+              className="reveal-left"
+              style={{
+                display: 'flex',
+                gap: 28,
+                marginBottom: i < steps.length - 1 ? 48 : 0,
+                position: 'relative',
+                transitionDelay: `${i * 0.2}s`,
+              }}
+            >
               <div style={{
                 width: 64,
                 height: 64,
                 borderRadius: '50%',
-                background: 'rgba(141,198,63,0.1)',
+                background: '#0a0a0a',
                 border: '2px solid #8DC63F',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                margin: '0 auto 20px',
-                fontSize: 24,
+                fontSize: 18,
                 fontWeight: 900,
                 color: '#8DC63F',
+                flexShrink: 0,
+                zIndex: 1,
+                boxShadow: '0 0 20px rgba(141,198,63,0.15)',
               }}>
                 {s.num}
               </div>
-              <h3 style={{ fontSize: 20, fontWeight: 800, marginBottom: 8 }}>{s.title}</h3>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14 }}>{s.desc}</p>
+              <div style={{ paddingTop: 12 }}>
+                <h3 style={{ fontSize: 22, fontWeight: 900, marginBottom: 6 }}>{s.title}</h3>
+                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 15 }}>{s.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -204,31 +320,57 @@ function HowItWorksSection() {
 /* ─── WHY INDOO ─── */
 function WhyIndooSection() {
   const features = [
-    { title: 'No Commission', desc: 'Keep 100% of your revenue', icon: '💰' },
-    { title: 'Your Own Brand', desc: 'Your name, your app, your customers', icon: '🏷️' },
-    { title: 'WhatsApp Integration', desc: 'Orders and communication via WhatsApp', icon: '💬' },
-    { title: 'Indonesian Market', desc: 'Built for Indonesia, by Indonesia', icon: '🇮🇩' },
-    { title: 'Affordable', desc: 'Starting from Rp 30,000/month', icon: '✨' },
-    { title: 'Full Support', desc: 'Setup assistance and ongoing help', icon: '🤝' },
+    { title: 'Zero Commission', desc: 'Keep all your revenue', icon: '\uD83D\uDCB0' },
+    { title: 'Your Brand', desc: 'Your name, your platform, your customers', icon: '\uD83C\uDFF7\uFE0F' },
+    { title: 'WhatsApp Native', desc: 'Built for how Indonesia communicates', icon: '\uD83D\uDCAC' },
+    { title: 'Affordable', desc: 'Starting from Rp 30,000/month', icon: '\u2728' },
+    { title: 'Full Support', desc: 'Setup assistance and ongoing help', icon: '\uD83E\uDD1D' },
+    { title: 'Indonesian Built', desc: 'Designed for the local market', icon: '\uD83C\uDDEE\uD83C\uDDE9' },
   ]
 
   return (
     <section className="section">
       <div className="ws-container">
-        <h2 className="section-title">Why Choose INDOO</h2>
-        <p className="section-subtitle">Built for Indonesian businesses that want to own their digital presence</p>
+        <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+          <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16 }}>Why INDOO</h2>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, maxWidth: 550, margin: '0 auto' }}>
+            Built for Indonesian businesses that want to own their digital presence
+          </p>
+        </div>
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: 20,
         }}>
-          {features.map((f) => (
-            <div key={f.title} className="card" style={{ padding: 24, display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-              <div style={{ fontSize: 28, flexShrink: 0 }}>{f.icon}</div>
+          {features.map((f, i) => (
+            <div
+              key={f.title}
+              className="glass-card reveal-scale"
+              style={{
+                padding: 28,
+                display: 'flex',
+                gap: 18,
+                alignItems: 'flex-start',
+                transitionDelay: `${i * 0.1}s`,
+              }}
+            >
+              <div style={{
+                fontSize: 32,
+                flexShrink: 0,
+                width: 56,
+                height: 56,
+                borderRadius: 14,
+                background: 'rgba(141,198,63,0.06)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+                {f.icon}
+              </div>
               <div>
-                <h3 style={{ fontSize: 16, fontWeight: 800, marginBottom: 4 }}>{f.title}</h3>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14 }}>{f.desc}</p>
+                <h3 style={{ fontSize: 17, fontWeight: 800, marginBottom: 6 }}>{f.title}</h3>
+                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, lineHeight: 1.6 }}>{f.desc}</p>
               </div>
             </div>
           ))}
@@ -242,62 +384,92 @@ function WhyIndooSection() {
 function PricingSection() {
   const plans = [
     {
-      icon: '🍽️',
-      name: 'Indoo Food',
-      price: 'From Rp 50,000',
-      period: '/month',
-      features: ['Own branded page', 'Menu management', 'WhatsApp ordering', 'Delivery zones', 'QR codes', 'Order notifications'],
+      name: 'Street Food',
+      tiers: [
+        { label: 'Basic', price: 'Rp 50K', period: '/month' },
+        { label: 'Pro', price: 'Rp 100K', period: '/month', popular: true },
+        { label: 'Premium', price: 'Rp 200K', period: '/month' },
+      ],
     },
     {
-      icon: '🏡',
-      name: 'Indoo Property',
-      price: 'Service-based',
-      period: 'fees',
-      features: ['Investment platform', 'Legal guidance', 'PT PMA formation', 'Property management', 'Multi-language support', 'Investor tools'],
-      highlight: true,
-    },
-    {
-      icon: '🛵',
-      name: 'Indoo Riders',
+      name: 'City Riders',
       price: 'Rp 30,000',
       period: '/month per driver',
-      features: ['Driver profile', 'Online/offline status', 'City-based listing', 'Restaurant booking', 'WhatsApp contact', 'Rating system'],
+      features: ['Full profile listing', 'Online/offline status', 'City-based visibility', 'WhatsApp direct contact', 'Rating system', 'Unlimited bookings'],
+    },
+    {
+      name: 'Indoo Property',
+      price: 'Custom',
+      period: 'service-based',
+      features: ['Investment platform access', 'Legal guidance', 'PT PMA formation', 'Property management', 'Multi-language support', 'Dedicated advisor'],
     },
   ]
 
   return (
-    <section className="section" style={{ background: 'rgba(141,198,63,0.03)' }}>
+    <section className="section" style={{ background: 'rgba(141,198,63,0.02)' }}>
       <div className="ws-container">
-        <h2 className="section-title">Simple Pricing</h2>
-        <p className="section-subtitle">Transparent pricing with no hidden fees</p>
+        <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+          <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 16 }}>Simple Pricing</h2>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16 }}>Transparent pricing with no hidden fees</p>
+        </div>
 
         <div className="grid-3">
-          {plans.map((p) => (
-            <div
-              key={p.name}
-              className="card"
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                border: p.highlight ? '1px solid rgba(141,198,63,0.3)' : undefined,
-              }}
-            >
-              <div style={{ fontSize: 32, marginBottom: 12 }}>{p.icon}</div>
-              <h3 style={{ fontSize: 18, fontWeight: 800, marginBottom: 16 }}>{p.name}</h3>
-              <div style={{ marginBottom: 24 }}>
-                <span style={{ fontSize: 28, fontWeight: 900, color: '#8DC63F' }}>{p.price}</span>
-                <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14, marginLeft: 4 }}>{p.period}</span>
+          {/* Street Food tiers */}
+          <div className="glass-card reveal-scale" style={{ padding: 32, display: 'flex', flexDirection: 'column' }}>
+            <h3 style={{ fontSize: 20, fontWeight: 900, marginBottom: 24 }}>Street Food</h3>
+            {plans[0].tiers.map((t) => (
+              <div key={t.label} style={{
+                padding: '16px 20px',
+                borderRadius: 12,
+                border: t.popular ? '1px solid rgba(141,198,63,0.4)' : '1px solid rgba(255,255,255,0.06)',
+                marginBottom: 12,
+                background: t.popular ? 'rgba(141,198,63,0.06)' : 'transparent',
+                animation: t.popular ? 'borderGlow 3s ease infinite' : 'none',
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontWeight: 700, fontSize: 15 }}>
+                    {t.label}
+                    {t.popular && <span style={{ color: '#8DC63F', fontSize: 12, marginLeft: 8, fontWeight: 800 }}>POPULAR</span>}
+                  </span>
+                  <span style={{ color: '#8DC63F', fontWeight: 900, fontSize: 16 }}>{t.price}<span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12, fontWeight: 500 }}>{t.period}</span></span>
+                </div>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                {p.features.map((f) => (
-                  <div key={f} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 14, color: 'rgba(255,255,255,0.7)' }}>
-                    <span style={{ color: '#8DC63F', fontWeight: 700 }}>&#10003;</span>
-                    {f}
-                  </div>
-                ))}
-              </div>
+            ))}
+          </div>
+
+          {/* City Riders */}
+          <div className="glass-card reveal-scale" style={{ padding: 32, display: 'flex', flexDirection: 'column', transitionDelay: '0.15s' }}>
+            <h3 style={{ fontSize: 20, fontWeight: 900, marginBottom: 8 }}>City Riders</h3>
+            <div style={{ marginBottom: 24 }}>
+              <span style={{ fontSize: 32, fontWeight: 900, color: '#8DC63F' }}>{plans[1].price}</span>
+              <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14, marginLeft: 4 }}>{plans[1].period}</span>
             </div>
-          ))}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              {plans[1].features.map((f) => (
+                <div key={f} style={{ display: 'flex', gap: 10, fontSize: 14, color: 'rgba(255,255,255,0.7)' }}>
+                  <span style={{ color: '#8DC63F', fontWeight: 700 }}>&#10003;</span>
+                  {f}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Indoo Property */}
+          <div className="glass-card reveal-scale" style={{ padding: 32, display: 'flex', flexDirection: 'column', transitionDelay: '0.3s' }}>
+            <h3 style={{ fontSize: 20, fontWeight: 900, marginBottom: 8 }}>Indoo Property</h3>
+            <div style={{ marginBottom: 24 }}>
+              <span style={{ fontSize: 32, fontWeight: 900, color: '#8DC63F' }}>{plans[2].price}</span>
+              <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14, marginLeft: 4 }}>{plans[2].period}</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              {plans[2].features.map((f) => (
+                <div key={f} style={{ display: 'flex', gap: 10, fontSize: 14, color: 'rgba(255,255,255,0.7)' }}>
+                  <span style={{ color: '#8DC63F', fontWeight: 700 }}>&#10003;</span>
+                  {f}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -305,27 +477,32 @@ function PricingSection() {
 }
 
 /* ─── CTA ─── */
-function CTASection({ navigate }) {
+function CTASection() {
   return (
     <section className="section">
       <div className="ws-container" style={{ textAlign: 'center' }}>
-        <h2 style={{ fontSize: 36, fontWeight: 900, marginBottom: 16 }}>Ready to Start?</h2>
-        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, marginBottom: 32 }}>
-          Contact us for a free consultation
-        </p>
-        <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 24 }}>
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="btn-primary">
-            WhatsApp Us
+        <div className="reveal">
+          <h2 style={{ fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 900, marginBottom: 16 }}>
+            Ready to Build Your Business?
+          </h2>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 18, marginBottom: 40, maxWidth: 500, margin: '0 auto 40px' }}>
+            Start with a free consultation &mdash; no obligations
+          </p>
+          <a
+            href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+            style={{
+              fontSize: 18,
+              padding: '18px 48px',
+              animation: 'pulseGlow 2s ease-in-out infinite',
+              borderRadius: 16,
+            }}
+          >
+            Chat on WhatsApp
           </a>
         </div>
-        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14 }}>
-          Or visit our products directly:{' '}
-          <button onClick={() => navigate('food')} style={{ background: 'none', border: 'none', color: '#8DC63F', fontWeight: 700, fontSize: 14, cursor: 'pointer' }}>Food</button>
-          {' | '}
-          <button onClick={() => navigate('property')} style={{ background: 'none', border: 'none', color: '#8DC63F', fontWeight: 700, fontSize: 14, cursor: 'pointer' }}>Property</button>
-          {' | '}
-          <button onClick={() => navigate('riders')} style={{ background: 'none', border: 'none', color: '#8DC63F', fontWeight: 700, fontSize: 14, cursor: 'pointer' }}>Riders</button>
-        </p>
       </div>
     </section>
   )

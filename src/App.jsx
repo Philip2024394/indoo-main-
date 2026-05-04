@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
@@ -7,31 +7,39 @@ import PropertyPage from './pages/PropertyPage'
 import RidersPage from './pages/RidersPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
+import './index.css'
 
 export default function App() {
   const [page, setPage] = useState('home')
 
-  const navigate = (p) => {
-    setPage(p)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+  // Scroll reveal observer
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible')
+        }
+      })
+    }, { threshold: 0.1 })
 
-  const pages = {
-    home: <HomePage navigate={navigate} />,
-    food: <FoodPage navigate={navigate} />,
-    property: <PropertyPage navigate={navigate} />,
-    riders: <RidersPage navigate={navigate} />,
-    about: <AboutPage navigate={navigate} />,
-    contact: <ContactPage navigate={navigate} />,
-  }
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el))
+
+    return () => observer.disconnect()
+  })
+
+  // Scroll to top on page change
+  useEffect(() => { window.scrollTo(0, 0) }, [page])
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <Nav page={page} navigate={navigate} />
-      <main style={{ flex: 1, paddingTop: 64 }}>
-        {pages[page] || pages.home}
-      </main>
-      <Footer navigate={navigate} />
-    </div>
+    <>
+      <Nav activePage={page} onNavigate={setPage} />
+      {page === 'home' && <HomePage onNavigate={setPage} />}
+      {page === 'food' && <FoodPage onNavigate={setPage} />}
+      {page === 'property' && <PropertyPage onNavigate={setPage} />}
+      {page === 'riders' && <RidersPage onNavigate={setPage} />}
+      {page === 'about' && <AboutPage onNavigate={setPage} />}
+      {page === 'contact' && <ContactPage onNavigate={setPage} />}
+      <Footer onNavigate={setPage} />
+    </>
   )
 }
