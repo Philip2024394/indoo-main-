@@ -98,6 +98,78 @@ export default function FoodPage({ onNavigate }) {
         </div>
       </section>
 
+      {/* Why Choose Your Own Menu */}
+      <section className="section" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', background: 'linear-gradient(135deg, rgba(141,198,63,0.03), rgba(250,204,21,0.02))' }} />
+        <div className="ws-container" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="reveal" style={{ textAlign: 'center', marginBottom: 48 }}>
+            <h2 style={{ fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 900, marginBottom: 16 }}>Why Your <span className="gradient-text">Own Menu</span> Matters</h2>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, maxWidth: 550, margin: '0 auto' }}>Stop competing on crowded platforms. Own your customers.</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20, marginBottom: 40 }}>
+            {[
+              {
+                wrong: '"Get your own digital menu"',
+                right: '"Turn your TikTok followers into paying customers"',
+                desc: 'You already have followers watching your food videos. Give them a link to order — not just like and scroll past.',
+                icon: '📱',
+              },
+              {
+                wrong: '"QR code for your stall"',
+                right: '"Link di bio — customers order before they come"',
+                desc: 'Put your menu link in your TikTok, Instagram, or WhatsApp status. Customers see your menu, order, and come to pick up. No waiting.',
+                icon: '🔗',
+              },
+              {
+                wrong: '"Software for Rp 60,000"',
+                right: '"One extra order per day pays for it"',
+                desc: 'You sell nasi goreng at Rp 15,000. Just 4 extra orders per month = Rp 60,000 back. Everything after that is pure profit.',
+                icon: '💰',
+              },
+            ].map((item, i) => (
+              <div key={i} className="glass-card reveal-scale" style={{ padding: 28, transitionDelay: `${i * 0.15}s` }}>
+                <div style={{ fontSize: 32, marginBottom: 14 }}>{item.icon}</div>
+                <div style={{ marginBottom: 12 }}>
+                  <div style={{ fontSize: 14, color: '#EF4444', fontWeight: 700, marginBottom: 4, textDecoration: 'line-through', opacity: 0.6 }}>Don't sell: {item.wrong}</div>
+                  <div style={{ fontSize: 16, color: '#8DC63F', fontWeight: 800 }}>Sell: {item.right}</div>
+                </div>
+                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 14, lineHeight: 1.7 }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Your Menu, Your Customers */}
+          <div className="glass-card reveal" style={{ padding: 32, border: '1px solid rgba(141,198,63,0.15)' }}>
+            <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+              <div style={{ fontSize: 40, flexShrink: 0 }}>🏆</div>
+              <div style={{ flex: 1, minWidth: 260 }}>
+                <h3 style={{ fontSize: 20, fontWeight: 900, marginBottom: 10 }}>Your Customers Save <span style={{ color: '#8DC63F' }}>YOUR</span> Menu — Not Your Competitor's</h3>
+                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 15, lineHeight: 1.8, marginBottom: 16 }}>
+                  On GoFood or GrabFood, your restaurant sits next to 1,000 others. The customer searches "nasi goreng" and sees 50 options — including your competitor right above you. They might choose someone else. Every time.
+                </p>
+                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 15, lineHeight: 1.8, marginBottom: 16 }}>
+                  With your own menu page, the customer bookmarks <strong style={{ color: '#FACC15' }}>YOUR</strong> link. They save <strong style={{ color: '#FACC15' }}>YOUR</strong> page to their home screen. When they're hungry, they open <strong style={{ color: '#FACC15' }}>YOUR</strong> menu — not a marketplace showing your competition.
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  {[
+                    'No competing vendors on your page — only YOUR food',
+                    'Customer saves your link — comes back to YOU every time',
+                    'No algorithm deciding who gets seen first',
+                    'No commission taken from every order',
+                    'YOUR brand, YOUR menu, YOUR customers',
+                  ].map(point => (
+                    <div key={point} style={{ display: 'flex', gap: 10, fontSize: 14, color: 'rgba(255,255,255,0.7)' }}>
+                      <span style={{ color: '#8DC63F', fontWeight: 700 }}>✓</span> {point}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section className="section" id="pricing-section">
         <div className="ws-container">
